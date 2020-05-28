@@ -1,12 +1,3 @@
-[toc]
-## 一，什么是工作流？
-
-略。
-
-## 二，实现自动化
-
-略。
-
 ## 三, ActivitiDesigner流程设计器安装与使用（Eclipse版本）
 
 `Eclipse`版本的流程设计器下载地址：链接：https://pan.baidu.com/s/1kgPqXlA75JzBSZ0xvkAG1w 提取码：vgl1
