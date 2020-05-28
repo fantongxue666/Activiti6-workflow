@@ -1,19 +1,46 @@
+[TOC]
+
+## 一，什么是工作流？
+
+> 1，工作流(`Workflow`)，就是“业务过程的部分或整体在计算机应用环境下的自动化”，它主要解决的是“使在多个参与者之间按照某种预定义的规则传递文档、信息或任务的过程自动进行，从而实现某个预期的业务目标，或者促使此目标的实现。
+>
+> 2，工作流管理系统(`Workflow Management System`, `WfMS`)是一个软件系统，它完成工作量的定义和管理，并按照在系统中预先定义好的工作流逻辑进行工作流实例的执行。工作流管理系统不是企业的业务系统，而是为企业的业务系统的运行提供了一个软件的支撑环境。
+>
+> 3，常见的工作流框架有`Activity`、`JBPM`、`OSWorkFlow`、`WorkFlow`。
+
+## 二，实现自动化
+
+> 1，业务流程图要规范化，要遵守一套标准。
+>
+> 2，业务流程图本质上是一个`xml`文件，这样就可以存入所有数据。
+>
+> 3，读取业务流程图的过程就是解析`xml`文件的过程。
+>
+> 4，读取一个业务流程图中的节点就相当于是解析一个xml结构，进一步将数据插入到`mysql`的表中，形成一条记录。
+>
+> 5，将所有的节点都读取并存入`mysql`表中。
+>
+> 6，后面只要读取`mysql`表中的记录就行了，读一条记录就相当于读一个节点。
+>
+> 7，业务流程的推进，后面就转化为读表中数据，并且处理数据，结束时这一行数据就可以删除了，删除就代表该业务流程结束。
+
 ## 三, ActivitiDesigner流程设计器安装与使用（Eclipse版本）
+
+
 
 `Eclipse`版本的流程设计器下载地址：链接：https://pan.baidu.com/s/1kgPqXlA75JzBSZ0xvkAG1w 提取码：vgl1
 
 下载完成后解压，然后替换`Eclipse`安装目录列表中的相同的两个目录里面的`jar`包，也就是移到`Eclipse`的安装目录的那两个文件夹，然后重新打开`Eclipse`，就已经有流程设计器插件了。
 
-![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/100644_23e0954a_5680115.png)
+![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/164926_28994826_5680115.png)
 
 ## 四，ActivitiDesigner流程设计器安装与使用（idea版本）
 
 安装`actiBPM`插件，并重启`idea`
 
-![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/100644_3d7a76ac_5680115.png)
+![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/164927_dd0cb383_5680115.png)
 
 安装完成后，在资源文件夹`resources`右键新建`actiBPMFiles`，然后就可以画流程图了。
-
 
 
 
@@ -213,7 +240,8 @@
         System.out.println(processEngine);
     }
 ```
-![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/100644_3805603f_5680115.png)
+
+![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/164926_7a3d17c7_5680115.png)
 
 ### 5，上述25张数据库表的命名规则
 
@@ -226,7 +254,7 @@
 
 ## 六，Activiti架构图
 
-![img](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9zczIuYmRzdGF0aWMuY29tLzcwY0Z2blNoX1ExWW54R2twb1dLMUhGNmhoeS9pdC91PTE5NTY2MDA5ODgsMzk4MzUxMDMxOCZmbT0yNiZncD0wLmpwZw?x-oss-process=image/format,png)
+![img](https://images.gitee.com/uploads/images/2020/0528/164927_580f1368_5680115.jpeg)
 
 从图中可以看出，通过`ProcessEngine`对象可以得到下面的好多`Service`，而下面的`Service`的作用就是直接对数据库中的25张表进行增删改查操作，很简便，不用再自己写增删改查了。
 
@@ -254,13 +282,13 @@
 
 新建流程`holiday.bpmn`，在`resources`资源文件夹下新建`BPNMFile`文件，并画一个流程，这里举例请假流程。
 
-![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/100644_213e8b8a_5680115.png)
+![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/164926_50bda92f_5680115.png)
 
 1，点击白色区域，看左边的`id`和`name`，每一个流程图都有唯一的`id`和`name`，可以自定义。
 
 2，点击任务格子，看左边的`Assignee`，如下图，是指定该任务分配给谁来执行的。都分配一下，这里分配结果==》填写请假单：zhangsan；部门经理审批：lisi；总经理审批：wangwu。
 
-![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/100644_15358193_5680115.png)
+![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/164926_c7a541a5_5680115.png)
 
 
 
@@ -268,17 +296,17 @@
 
 画完图后，但是并没有生成`png`图片，这个时候重命名刚才创建的文件，把后缀改成`xml`，然后右键
 
-![\[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-OCz5ae6n-1584088100296)(D:\工作\学习资料\我的笔记（图片）\1583144076116.png)\]](https://images.gitee.com/uploads/images/2020/0528/100644_1f3dfd2a_5680115.png)
+![\[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-OCz5ae6n-1584088100296)(D:\工作\学习资料\我的笔记（图片）\1583144076116.png)\]](https://images.gitee.com/uploads/images/2020/0528/164927_b9b1b3db_5680115.png)
 
 然后保存到与刚才创建文件的一个文件夹内就可以了
 
 下面是保存按钮
 
-![\[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-w2ckHfX9-1584088100296)(D:\工作\学习资料\我的笔记（图片）\1583144893670.png)\]](https://images.gitee.com/uploads/images/2020/0528/100644_8138b1ce_5680115.png)
+![\[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-w2ckHfX9-1584088100296)(D:\工作\学习资料\我的笔记（图片）\1583144893670.png)\]](https://images.gitee.com/uploads/images/2020/0528/164927_47c71756_5680115.png)
 
 <font color="red">如果流程图是中文乱码的情况，那么在`idea`安装目录的下面两个文件添加一句代码。</font>
 
-![\[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-knqRfCLj-1584088100297)(D:\工作\学习资料\我的笔记（图片）\1583144972938.png)\]](https://images.gitee.com/uploads/images/2020/0528/100644_8bda9934_5680115.png)
+![\[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-knqRfCLj-1584088100297)(D:\工作\学习资料\我的笔记（图片）\1583144972938.png)\]](https://images.gitee.com/uploads/images/2020/0528/164927_b9608ea8_5680115.png)
 
 ```
 -Dfile.encoding=UTF-8
@@ -321,15 +349,15 @@
 
 看数据库表`act_re_deployment`表新增了一条数据。（该表存放部署信息）
 
-![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/100644_b02cfe94_5680115.png)
+![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/164927_0acbd942_5680115.png)
 
 `act_re_procdef`表也新增了一条数据。（该表存放流程定义的一些信息）
 
-![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/100644_0bba0f1b_5680115.png)
+![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/164927_1d8d3269_5680115.png)
 
 `act_ge_bytearray`新增了两条，这是存储的文件。（该表存放流程定义的bpmn文件及png文件）
 
-![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/100645_33c96ca0_5680115.png)
+![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/164927_05d94a45_5680115.png)
 
 <font color="blue">总的来说，就是部署一个新的流程时，数据库发生变化的是上面的三张表。</font>
 
@@ -366,7 +394,7 @@
 
 看数据表`act_hi_procinst`新增了一条数据。
 
-![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/100645_5c6a1827_5680115.png)
+![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/164927_e264aef8_5680115.png)
 
 启动一个流程实例影响数据库的表：
 
@@ -437,7 +465,7 @@
 
 看数据库`act_hi_taskinst`表的变化，填写请假单有了结束时间，然后新增了一条部门经理审批，并且结束时间为NULL，这就说明跳到下一个节点了。
 
-![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/100645_076f306e_5680115.png)
+![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/164927_f7f13024_5680115.png)
 
 
 
@@ -652,7 +680,7 @@
 
 打印
 
-![\[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-OpgI4LLC-1584088100299)(D:\工作\学习资料\我的笔记（图片）\1583565935597.png)\]](https://images.gitee.com/uploads/images/2020/0528/100645_884258a5_5680115.png)
+![\[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-OpgI4LLC-1584088100299)(D:\工作\学习资料\我的笔记（图片）\1583565935597.png)\]](https://images.gitee.com/uploads/images/2020/0528/164927_effcf79f_5680115.png)
 
 
 
@@ -668,7 +696,7 @@ Activiti：数据库中的25张表只是负责`Activiti`的工作正常流程，
 
 `act_ru_execution`表中的`bussiness_key`字段就是业务主键（业务标识）。
 
-![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/100645_2a68237e_5680115.png)
+![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/164927_bccddb55_5680115.png)
 
 ### 1，Activiti实现与业务系统businessKey整合操作
 
@@ -697,7 +725,7 @@ Activiti：数据库中的25张表只是负责`Activiti`的工作正常流程，
 打印：1001
 
 观察`act_ru_execution`表，已经和业务`id`绑定了。
-![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/100645_e6b158a4_5680115.png)
+![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/164928_8a9a2283_5680115.png)
 
 ### 2，Activiti全部流程的挂起与激活
 
@@ -785,7 +813,7 @@ Activiti：数据库中的25张表只是负责`Activiti`的工作正常流程，
 
 写法：`${变量名}`
 
-![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/100645_0ec0d1f7_5680115.png)
+![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/164929_fa838d58_5680115.png)
 
 什么时候设置表达式？
 
@@ -818,7 +846,7 @@ Activiti：数据库中的25张表只是负责`Activiti`的工作正常流程，
 
 在界面中添加监听器。
 
-![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/100645_3843e2cd_5680115.png)
+![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/164928_fb9833f5_5680115.png)
 
 定义任务监听类，该类必须实现`org.activiti.delegate.TaskListener`接口。
 
@@ -856,7 +884,7 @@ public class MyTaskListener implements TaskListener(){
 
 点击流程图的连线，设置流程变量即可。
 
-![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/100645_e6162477_5680115.png)
+![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/164928_66b4af71_5680115.png)
 
 ### 4，Activiti流程变量案例
 
@@ -864,7 +892,7 @@ public class MyTaskListener implements TaskListener(){
 
 定义BPMN文件：
 
-![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/100645_256190b6_5680115.png)
+![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/164928_e84b8306_5680115.png)
 
 
 
@@ -970,19 +998,19 @@ public class HolidayTest {
 
 张三执行完之后，看`act_hi_actinst`表，张三填写申请已经结束，来到了李四部门经理审批。
 
-![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/100645_5cdeef5d_5680115.png)
+![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/164928_22cf5fc5_5680115.png)
 
 然后再执行李四（）把zhangsan改成lisi，运行上面的测试类。
 
 运行完之后，李四的任务也执行完毕了，也就是部门审批完了，看`act_hi_actinst`表的变化。
 
-![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/100645_72372b9a_5680115.png)
+![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/164929_1a319429_5680115.png)
 
 发现来到了人事经理存档的节点，是因为上面设置的请假天数是1天，所以直接来到了人事，如果请假天数大于3天，那么会先到总经理审批节点，然后才到人事节点。
 
 同理，把lisi改成zhaoliu，也就是执行人事经理存档，运行，看`act_hi_actinst`表的变化。
 
-![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/100645_71edd0e5_5680115.png)
+![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/164929_c6a7a0fe_5680115.png)
 
 流程执行完毕。
 
@@ -990,7 +1018,7 @@ public class HolidayTest {
 
 上面的流程变量的赋值是创建流程实例就有值了，而完成任务设置值是完成了该节点之后然后流程变量才有的值。
 
-![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/100645_227835a4_5680115.png)
+![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/164929_4ea1e979_5680115.png)
 
 ### 6，通过流程实例ID设置流程变量的值
 
@@ -1041,7 +1069,7 @@ taskService.setVariable(taskId,"holiday",holiday);
 
 流程图任务节点的配置中配置`candiddate-users`（候选人），多个候选人之间用逗号隔开。
 
-![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/100646_76870945_5680115.png)
+![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/164929_6930d862_5680115.png)
 
 ### 1，Activiti组任务办理流程
 
@@ -1056,6 +1084,7 @@ taskService.setVariable(taskId,"holiday",holiday);
     
 
 - 第三步：查询个人任务，查询方式同个人任务部分，根据assignee查询用户负责的个人任务。
+
 - 第四步：办理个人任务。
 
 ### 2，Activiti查询候选人的组任务
@@ -1201,7 +1230,7 @@ taskService.setVariable(taskId,"holiday",holiday);
 
 这是关键，因为如果两个分支条件都满足，那同时走两个分支是不现实的，要不然流程就全乱套了。
 
-![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/100646_463939b9_5680115.png)
+![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/164929_debb1bef_5680115.png)
 
 使用方法：在流程图界面拖一个排他网关放在中间就行了。
 
@@ -1213,7 +1242,7 @@ taskService.setVariable(taskId,"holiday",holiday);
 
 <font color="blue">并行网关并不会解析条件，即使顺序流中定义了条件，也会被忽略。</font>
 
-![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/100646_48b4a9f9_5680115.png)
+![在这里插入图片描述](https://images.gitee.com/uploads/images/2020/0528/164929_7398a88e_5680115.png)
 
 ### 3，包含网关
 
