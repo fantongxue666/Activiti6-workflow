@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link th:href="@{../style/authority/main_css.css}" rel="stylesheet" type="text/css" />
+	<link th:href="@{../style/authority/zTreeStyle.css}" rel="stylesheet" type="text/css">
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<!--<script type="text/javascript" th:src="@{../scripts/jquery/jquery-1.7.1.js}"></script>-->
+	<script type="text/javascript" th:src="@{../scripts/zTree/jquery.ztree.core-3.2.js}"></script>
+	<script type="text/javascript" th:src="@{../scripts/authority/commonAll.js}"></script>
+	<link href="https://heerey525.github.io/layui-v2.4.3/layui/css/layui.css" rel="stylesheet" type="text/css">
+	<link th:href="@{../assets/css/layer.css}" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="https://heerey525.github.io/layui-v2.4.3/layui/layui.js"></script>
+	<script type="text/javascript" th:src="@{../scripts/zTree/layui.all.js}"></script>
+
+	<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>信息管理系统</title>
+<script type="text/javascript">
+
+
+</script>
+<style>
+	.alt td{ background:black !important;}
+</style>
+</head>
+<body>
+	<form id="submitForm" name="submitForm" action="" method="post">
+		<input type="hidden" name="allIDCheck" value="" id="allIDCheck"/>
+		<input type="hidden" name="fangyuanEntity.fyXqName" value="" id="fyXqName"/>
+		<div id="container">
+
+			<div class="ui_content">
+				<div class="ui_tb">
+					<table class="table table-bordered table-hover" style="margin:auto;width: 90%;" cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
+						<tr>
+							<th style="text-align: center;">模型ID</th>
+							<th style="text-align: center;">模型名称</th>
+							<th style="text-align: center;">模型KEY</th>
+							<th style="text-align: center;">版本</th>
+							<th style="text-align: center;">创建时间</th>
+							<th style="text-align: center;">操作</th>
+						</tr>
+							<tr th:each="one:${list.list}">
+
+								<td style="text-align: center;" th:text="${one.ID_}"></td>
+								<td style="text-align: center;" th:text="${one.NAME_}"></td>
+								<td style="text-align: center;" th:text="${one.KEY_}"></td>
+								<td style="text-align: center;" th:text="${one.VERSION_}"></td>
+								<td style="text-align: center;" th:text="${#dates.format(one.CREATE_TIME_, 'yyyy-MM-dd HH:mm')}"></td>
+
+								<td style="text-align: center;">
+									<a href="javascript:;" onclick="bsmx(this)" >部署模型</a>
+									<a href="javascript:;" onclick="ckmx(this)" >修改</a>
+									<a href="javascript:;" onclick="scmx(this)" >删除</a>
+
+								</td>
+							</tr>
+						
+
+						
+					</table>
+				</div>
+				<div class="ui_tb_h30">
+					<div class="ui_flt" style="height: 30px; line-height: 30px;margin-left: 5%;margin-top: 3%;">
+						共有
+						<span class="ui_txt_bold04" th:text="${list.total}"></span>
+						条记录，当前第
+						<span class="ui_txt_bold04" th:text="${list.pageNum}">
+							页
+						</span>/<span class="ui_txt_bold04" th:text="${list.pages}"></span>页
+					</div>
+					<div class="ui_frt" style="float: right;margin-right: 6%; margin-top: -2%;">
+						<!--    如果是第一页，则只显示下一页、尾页 -->
+						
+						<a  th:href="@{/workflow/getModelList?pn=1}" class="ui_input_btn01" >首页</a>
+						<a th:href="@{'/workflow/getModelList?pn='+${list.pageNum-1}}" class="ui_input_btn01">上一页</a>
+							<a th:href="@{'/workflow/getModelList?pn='+${list.pageNum+1}}" class="ui_input_btn01">下一页</a>
+							<a th:href="@{'/workflow/getModelList?pn='+${list.pages}}" class="ui_input_btn01">尾页</a>
+						
+						
+						
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<div id="myAlert" class="alert alert-success" style="display: none;">
+		<a href="#" class="close" data-dismiss="alert" style="position: absolute;top: 0;">&times;</a>
+		<strong>部署成功！</strong>模型已成功部署为流程定义！
+	</div>
+	<div id="myAlert1" class="alert alert-success" style="display: none;">
+		<a href="#" class="close" data-dismiss="alert" style="position: absolute;top: 0;">&times;</a>
+		<strong>删除成功！</strong>模型已删除！
+	</div>
+<script>
+
+	function ckmx(e) {
+		var modelId=$(e).parent().parent().find("td").eq(0).html();
+		window.location.href="/detail/modeler?modelId="+modelId;
+    }
+    function bsmx(e) {
+        var modelId=$(e).parent().parent().find("td").eq(0).html();
+        layer.confirm("确认部署该模型吗？",{btn:['确认','取消']},function () {
+            $.post(
+                "/model/test02",
+                {modelId:modelId},
+                function (data) {
+                    layer.msg('部署成功', {
+                        time: 1000, //2s后自动关闭
+                    });
+                    setTimeout(function () {
+                        window.location.href=window.location.href;
+                    },1000);
+
+                }
+            );
+        },function () {
+            //取消之后的操作
+        })
+
+
+    }
+    function scmx(e) {
+        var modelId=$(e).parent().parent().find("td").eq(0).html();
+        layer.confirm("确认删除该模型吗？",{btn:['确认','取消']},function () {
+            $.post(
+                "/workflow/delModelByModelId",
+                {id:modelId},
+                function (data) {
+                    layer.msg('删除成功', {
+                        time: 1000, //2s后自动关闭
+                    });
+                    setTimeout(function () {
+                        window.location.href=window.location.href;
+                    },1000);
+                }
+            );
+        },function () {
+			//取消之后的操作
+        })
+    }
+
+</script>
+</body>
+</html>

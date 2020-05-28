@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>提交请假单</title>
+</head>
+<!--     Fonts and icons     -->
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+<!-- CSS Files -->
+<link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+<link href="../assets/css/now-ui-kit.css?v=1.1.0" rel="stylesheet" />
+<!-- CSS Just for demo purpose, don't include it in your project -->
+<link href="../assets/css/demo.css" rel="stylesheet" />
+<body style="background-color:lightgray;">
+
+<div style="width: 50%;height: 30%;background-color:wheat;margin: 10% auto;padding-top: 20px;padding-left: 20px;padding-bottom: 20px;">
+
+
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>请假人：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" placeholder=""  name="name" id="name"/>
+            </div>
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>请假天数：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" placeholder="" name="time" id="time"/>
+            </div>
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>请假原因：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" placeholder="" name="reason" id="reason"/>
+            </div>
+        </div>
+
+        <div class="row cl">
+            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                <input class="btn btn-primary radius" type="button" id="btn" value="&nbsp;&nbsp;提交&nbsp;&nbsp;"/>
+            </div>
+        </div>
+</div>
+
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    $("#btn").click(function () {
+        $.post(
+            "/test/submit",
+            {name:$("#name").val(),time:$("#time").val(),reason:$("#reason").val()},
+            function (data) {
+                if(data==1){
+                    alert("提交成功，等待审核中！");
+                }else{
+                    alert("提交失败");
+                }
+                window.location.href=window.location.href;
+            }
+        );
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link th:href="@{../style/authority/main_css.css}" rel="stylesheet" type="text/css" />
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link href="https://cdn.staticfile.org/ionic/1.3.2/css/ionic.css" rel="stylesheet">
+	<script src="https://cdn.staticfile.org/ionic/1.3.2/js/ionic.bundle.min.js"></script>
+
+<title>信息管理系统</title>
+<script type="text/javascript">
+
+
+</script>
+<style>
+	.alt td{ background:black !important;}
+</style>
+</head>
+<body>
+	<form id="submitForm" name="submitForm" action="" method="post">
+		<input type="hidden" name="allIDCheck" value="" id="allIDCheck"/>
+		<input type="hidden" name="fangyuanEntity.fyXqName" value="" id="fyXqName"/>
+		<div id="container">
+			<!--<input type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary" style="float:right;margin-right: 5%;margin-bottom: 2%;" value="新增用户"></input>-->
+
+			<div class="ui_content">
+				<div class="ui_tb">
+					<table class="table table-bordered table-hover" style="margin:auto;width: 90%;" cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
+						<tr>
+							<th style="text-align: center;">ID</th>
+							<th style="text-align: center;">用户名</th>
+							<th style="text-align: center;">密码</th>
+							<th style="text-align: center;">部门编号</th>
+							<th style="text-align: center;">账号状态</th>
+							<th style="text-align: center;">操作</th>
+						</tr>
+							<tr th:each="one:${list.list}">
+
+								<td style="text-align: center;" th:text="${one.id}"></td>
+								<td style="text-align: center;" th:text="${one.username}"></td>
+								<td style="text-align: center;">************</td>
+								<td style="text-align: center;" th:text="${one.deptno}"></td>
+								<td style="text-align: center;color: blueviolet;" th:text="${one.yxbz==1?'已启用':'已禁用'}"></td>
+								<td style="text-align: center;" th:switch="${one.yxbz}">
+									<div th:case="1">
+										<label class="toggle toggle-positive">
+											<input onclick="checkbox(this)" class="switch" type="checkbox" checked>
+											<div class="track">
+												<div class="handle"></div>
+											</div>
+										</label>
+										<!--<a href="javascript:;" onclick="scmx(this)" >授权</a>-->
+									</div>
+									<div th:case="0">
+										<label class="toggle toggle-positive">
+											<input onclick="checkbox(this)" class="switch" type="checkbox">
+											<div class="track">
+												<div class="handle"></div>
+											</div>
+										</label>
+										<!--<a href="javascript:;" onclick="scmx(this)" >授权</a>-->
+									</div>
+								</td>
+
+							</tr>
+						
+
+						
+					</table>
+				</div>
+				<div class="ui_tb_h30">
+					<div class="ui_flt" style="height: 30px; line-height: 30px;margin-left: 5%;margin-top: 3%;">
+						共有
+						<span class="ui_txt_bold04" th:text="${list.total}"></span>
+						条记录，当前第
+						<span class="ui_txt_bold04" th:text="${list.pageNum}">
+							页
+						</span>/<span class="ui_txt_bold04" th:text="${list.pages}"></span>页
+					</div>
+					<div class="ui_frt" style="float: right;margin-right: 6%; margin-top: -2%;">
+						<!--    如果是第一页，则只显示下一页、尾页 -->
+						
+						<a  th:href="@{/power/userList?pn=1}" class="ui_input_btn01" >首页</a>
+						<a th:href="@{'/power/userList?pn='+${list.pageNum-1}}" class="ui_input_btn01">上一页</a>
+							<a th:href="@{'/power/userList?pn='+${list.pageNum+1}}" class="ui_input_btn01">下一页</a>
+							<a th:href="@{'/power/userList?pn='+${list.pages}}" class="ui_input_btn01">尾页</a>
+						
+						
+						
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<div id="myAlert" class="alert alert-success" style="display: none;">
+		<a href="#" class="close" data-dismiss="alert" style="position: absolute;top: 0;">&times;</a>
+		<strong>新增部门成功！</strong>
+	</div>
+	<div id="myAlert1" class="alert alert-success" style="display: none;">
+		<a href="#" class="close" data-dismiss="alert" style="position: absolute;top: 0;">&times;</a>
+		<strong>删除成功！</strong>模型已删除！
+	</div>
+<script>
+	function checkbox(e){
+        var id=parseInt($(e).parent().parent().parent().parent().find("td").eq(0).html());
+        if ( e.checked == true){
+			$.post(
+			    "/power/startUser",
+				{id:id},
+				function (data) {
+					if(data==1){
+					    setTimeout(function () {
+							window.location.href=window.location.href;
+                        },500)
+					}
+                }
+			);
+        }else{
+            $.post(
+                "/power/endUser",
+                {id:id},
+                function (data) {
+                    if(data==1){
+                        setTimeout(function () {
+                            window.location.href=window.location.href;
+                        },500)
+                    }
+                }
+            );
+
+        }
+
+    }
+
+	$("#submit").click(function () {
+		$.ajax({
+			url:"/power/insertDept",
+			data:{deptno:$("#deptno").val(),deptname:$("#deptname").val()},
+			type:"post",
+			dataType:"json",
+			success:function (data) {
+				if(data==1){
+                    $("#close").click();
+                    layer.msg('新增成功', {
+                        time: 1000, //2s后自动关闭
+                    });
+                    setTimeout(function () {
+                        window.location.href=window.location.href;
+                    },1000);
+				}else{
+                    layer.msg('操作失败，请检查网络配置', {icon: 1});
+				}
+            }
+		});
+    });
+
+
+    function scmx(e) {
+        var modelId=parseInt($(e).parent().parent().find("td").eq(0).html());
+        layer.confirm("确认删除该部门吗？",{btn:['确认','取消']},function () {
+            $.post(
+                "/power/delDeptById",
+                {id:modelId},
+                function (data) {
+                    layer.msg('删除成功', {
+                        time: 1000, //2s后自动关闭
+                    });
+                    setTimeout(function () {
+                        window.location.href=window.location.href;
+                    },1000);
+                }
+            );
+        },function () {
+			//取消之后的操作
+        })
+    }
+
+</script>
+<script>
+    layui.use(['form'], function(){
+        var form = layui.form
+            ,layer = layui.layer
+        //监听指定开关
+        form.on('switch(switchTest)', function(data){
+            if(this.checked){
+                layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+                    offset: '6px'
+                });
+                layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅 仅是ON|OFF', data.othis)
+            }else{
+                layer.msg('开关： 关掉了', {
+                    offset: '6px'
+                });
+            }
+            //do some ajax opeartiopns;
+        });
+    });
+</script>
+</body>
+</html>

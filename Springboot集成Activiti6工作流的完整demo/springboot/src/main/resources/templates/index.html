@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>后台首页</title>
+    <style>
+        .ulObj{
+            display: none;
+        }
+        #h3{
+            text-align: center;
+            font-family: "楷体";
+        }
+        #main{
+            width: 1400px;
+            height: 550px;
+            border: 1px solid burlywood;
+            margin: 30px auto;
+        }
+        #quit{
+            position: absolute;
+            top: 40px;
+            right: 150px;
+        }
+        #iframe{
+            position: absolute;
+            top: 71px;
+            right: 66px;
+        }
+        #lianjie nav{
+            margin-top: 10px;
+        }
+        #lianjie{
+            margin-left:30px ;
+        }
+    </style>
+</head>
+<body>
+<h3 id="h3">Activiti工作流管理后台</h3>
+<div id="quit">
+    登录人：<span id="span" th:text="${username}"></span>
+    <a href="/test/logout">退出</a>
+</div>
+<div id="main">
+    <div id="lianjie">
+        <nav><a href="/test/list" target="iframe">我的待办</a></nav>
+        <nav><a href="/group/findSelfWork" target="iframe">组任务管理</a></nav>
+        <nav><a href="/hang/list" target="iframe">流程定义管理</a></nav>
+
+
+
+
+    </div>
+    <iframe name="iframe" id="iframe" src="/test/logo" width="1190px" height="545px"></iframe>
+</div>
+</body>
+</html>

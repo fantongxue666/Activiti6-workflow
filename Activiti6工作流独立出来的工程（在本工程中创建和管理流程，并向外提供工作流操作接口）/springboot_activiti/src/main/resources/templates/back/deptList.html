@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link th:href="@{../style/authority/main_css.css}" rel="stylesheet" type="text/css" />
+	<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+	<script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+	<link href="https://heerey525.github.io/layui-v2.4.3/layui/css/layui.css" rel="stylesheet" type="text/css">
+	<link th:href="@{../assets/css/layer.css}" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="https://heerey525.github.io/layui-v2.4.3/layui/layui.js"></script>
+	<script type="text/javascript" th:src="@{../scripts/zTree/layui.all.js}"></script>
+
+	<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+
+
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>信息管理系统</title>
+<script type="text/javascript">
+
+
+</script>
+<style>
+	.alt td{ background:black !important;}
+	.ulObj{
+		margin-left: 4%;
+	}
+</style>
+</head>
+<body>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" style="width: 70%;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">新增部门</h4>
+			</div>
+			<div class="modal-body">
+
+					<div class="form-group">
+						<label>部门编号</label>
+						<input type="text" class="form-control" name="deptno" id="deptno" placeholder="请输入部门编号">
+					</div>
+					<div class="form-group">
+						<label>部门名称</label>
+						<input type="text" class="form-control" name="deptname" id="deptname" placeholder="请输入部门名称">
+					</div>
+
+
+					<button id="submit" type="button" class="btn btn-default">提交</button>
+
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" id="close" class="btn btn-default" data-dismiss="modal">关闭</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+	<form id="submitForm" name="submitForm" action="" method="post">
+		<input type="hidden" name="allIDCheck" value="" id="allIDCheck"/>
+		<input type="hidden" name="fangyuanEntity.fyXqName" value="" id="fyXqName"/>
+		<div id="container">
+			<input type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary" style="float:right;margin-right: 5%;margin-bottom: 2%;" value="新增部门"></input>
+			<input id="gosq" type="button" style="display: none;" data-toggle="modal" data-target="#myModal1" class="btn btn-primary" value="到授权页面（隐藏域）"></input>
+
+			<div class="ui_content">
+				<div class="ui_tb">
+					<table class="table table-bordered table-hover" style="margin:auto;width: 90%;" cellspacing="0" cellpadding="0" width="100%" align="center" border="0">
+						<tr>
+							<th style="text-align: center;">部门ID</th>
+							<th style="text-align: center;">部门编号</th>
+							<th style="text-align: center;">部门名称</th>
+							<th style="text-align: center;">操作</th>
+						</tr>
+							<tr th:each="one:${list.list}">
+
+								<td style="text-align: center;" th:text="${one.id}"></td>
+								<td style="text-align: center;" th:text="${one.deptno}"></td>
+								<td style="text-align: center;" th:text="${one.deptname}"></td>
+
+								<td style="text-align: center;">
+									<a href="javascript:;" onclick="shouquan(this)" >授权</a>
+									<a href="javascript:;" onclick="scmx(this)" >删除</a>
+
+								</td>
+							</tr>
+						
+
+						
+					</table>
+				</div>
+				<div class="ui_tb_h30">
+					<div class="ui_flt" style="height: 30px; line-height: 30px;margin-left: 5%;margin-top: 3%;">
+						共有
+						<span class="ui_txt_bold04" th:text="${list.total}"></span>
+						条记录，当前第
+						<span class="ui_txt_bold04" th:text="${list.pageNum}">
+							页
+						</span>/<span class="ui_txt_bold04" th:text="${list.pages}"></span>页
+					</div>
+					<div class="ui_frt" style="float: right;margin-right: 6%; margin-top: -2%;">
+						<!--    如果是第一页，则只显示下一页、尾页 -->
+						
+						<a  th:href="@{/power/deptList?pn=1}" class="ui_input_btn01" >首页</a>
+						<a th:href="@{'/power/deptList?pn='+${list.pageNum-1}}" class="ui_input_btn01">上一页</a>
+							<a th:href="@{'/power/deptList?pn='+${list.pageNum+1}}" class="ui_input_btn01">下一页</a>
+							<a th:href="@{'/power/deptList?pn='+${list.pages}}" class="ui_input_btn01">尾页</a>
+						
+						
+						
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<div id="myAlert" class="alert alert-success" style="display: none;">
+		<a href="#" class="close" data-dismiss="alert" style="position: absolute;top: 0;">&times;</a>
+		<strong>新增部门成功！</strong>
+	</div>
+	<div id="myAlert1" class="alert alert-success" style="display: none;">
+		<a href="#" class="close" data-dismiss="alert" style="position: absolute;top: 0;">&times;</a>
+		<strong>删除成功！</strong>模型已删除！
+	</div>
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog" style="width: 70%;">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel1">授权</h4>
+			</div>
+			<div class="modal-body">
+				<div class="form-group">
+					<label>部门编号</label>
+					<input class="form-control" type="text" id="deptid" disabled="disabled">
+				</div>
+				<div class="form-group">
+					<label>部门名称</label>
+					<input class="form-control" type="text" id="deptname1" disabled="disabled">
+				</div>
+
+				<p style="color: red">请选择权限</p>
+				<div id="tree">
+					<ul id="menu"></ul><br>
+					<input type="button"class="btn btn-primary" id="commit" value="保存权限">
+				</div>
+
+
+
+
+				<!--<button id="submit1" type="button" class="btn btn-default">提交</button>-->
+
+
+			</div>
+			<div class="modal-footer">
+				<button type="button" id="close1" class="btn btn-default" data-dismiss="modal">关闭</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
+<script>
+
+	$("#submit").click(function () {
+		$.ajax({
+			url:"/power/insertDept",
+			data:{deptno:$("#deptno").val(),deptname:$("#deptname").val()},
+			type:"post",
+			dataType:"json",
+			success:function (data) {
+				if(data==1){
+                    $("#close").click();
+                    layer.msg('新增成功', {
+                        time: 1000, //2s后自动关闭
+                    });
+                    setTimeout(function () {
+                        window.location.href=window.location.href;
+                    },1000);
+				}else{
+                    layer.msg('操作失败，请检查网络配置', {icon: 1});
+				}
+            }
+		});
+    });
+
+
+    function scmx(e) {
+        var modelId=parseInt($(e).parent().parent().find("td").eq(0).html());
+        layer.confirm("确认删除该部门吗？",{btn:['确认','取消']},function () {
+            $.post(
+                "/power/delDeptById",
+                {id:modelId},
+                function (data) {
+                    layer.msg('删除成功', {
+                        time: 1000, //2s后自动关闭
+                    });
+                    setTimeout(function () {
+                        window.location.href=window.location.href;
+                    },1000);
+                }
+            );
+        },function () {
+			//取消之后的操作
+        })
+    }
+    
+    $("#commit").click(function () {
+        var tempArr="";
+        //所有被选中的复选框的值
+        $("input:checkbox:checked").each(function (i) {
+            tempArr+=($(this).val())+",";
+        });
+        var deptno=$("#deptid").val();
+        var temp="";
+        temp=tempArr.slice(0,-1);
+        console.log(temp);
+        $.ajax({
+            url:"/power/savePower",
+            data:{tempArr:temp,deptno:deptno},
+            dataType:"json",
+            type:"post",
+            sync:false,
+            success:function (data) {
+                if(data==1){
+                    $("#close1").click();
+                    layer.msg('保存授权成功', {
+                        time: 1000, //2s后自动关闭
+                    });
+                    setTimeout(function () {
+                        window.location.href=window.location.href;
+                    },1000);
+				}
+            }
+        });
+    });
+
+    //到授权页面
+    function shouquan(e) {
+        var deptno=$(e).parent().parent().find("td").eq(1).html();
+        var deptname=$(e).parent().parent().find("td").eq(2).html();
+		$("#gosq").click();
+		$("#deptid").val(deptno);
+		$("#deptname1").val(deptname);
+        $.post(
+            "/power/checkedTree",
+            {deptno:deptno},
+            function (data) {
+                // alert(JSON.stringify(data))
+                var str="";
+                //##################################
+                for(var i=0;i<data.length;i++){
+                    if(data[i].parentid==0){
+                        // console.log(JSON.stringify(data[i]));
+                        if(data[i].checked=="checked"){
+                            str+=' <li class="seconddd"><input type="checkbox" checked="checked" value="'+data[i].id+'"><a onclick="shows('+i+')" href="#">'+data[i].resourceName+'</a><ul class="ulObj"></ul></li>';
+                        }else{
+                            str+=' <li class="seconddd"><input type="checkbox" value="'+data[i].id+'"><a onclick="shows('+i+')" href="#">'+data[i].resourceName+'</a><ul class="ulObj"></ul></li>';
+                        }
+                    }
+                }
+                //##################################
+                $("#menu").html(str);
+                //##################################
+                for(var k=0;k<data.length;k++){
+                    var strSe="";
+                    if(data[k].treeNodeList!=null){
+                        // alert(data[i].children.length);
+                        for (var j=0;j<data[k].treeNodeList.length;j++){
+                            if(data[k].treeNodeList[j].checked=="checked"){
+                                strSe+='<li><input type="checkbox" checked="checked" value="'+data[k].treeNodeList[j].id+'"><a target="iframe" href="'+data[k].treeNodeList[j].url+'">'+data[k].treeNodeList[j].resourceName+'</a></li>';
+                            }else {
+                                strSe+='<li><input type="checkbox" value="'+data[k].treeNodeList[j].id+'"><a target="iframe" href="'+data[k].treeNodeList[j].url+'">'+data[k].treeNodeList[j].resourceName+'</a></li>';
+                            }
+                        }
+                    }else if(data[k].treeNodeList==null){
+                    }
+                    $(".ulObj").eq(k).append(strSe);
+                }
+            },
+            "json"
+        );
+    }
+
+</script>
+</body>
+</html>

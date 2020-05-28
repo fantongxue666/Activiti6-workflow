@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link th:href="@{../style/authority/basic_layout.css}" rel="stylesheet" type="text/css">
+	<link th:href="@{../style/authority/common_style.css}" rel="stylesheet" type="text/css">
+<link th:href="@{../style/authority/zTreeStyle.css}" rel="stylesheet" type="text/css">
+<script type="text/javascript" th:src="@{../scripts/jquery/jquery-1.4.4.min.js}"></script>
+<script type="text/javascript" th:src="@{../scripts/zTree/jquery.ztree.core-3.2.js}"></script>
+<script type="text/javascript" th:src="@{../scripts/fancybox/jquery.fancybox-1.3.4.js}"></script>
+<script type="text/javascript" th:src="@{../scripts/fancybox/jquery.fancybox-1.3.4.pack.js}"></script>
+<link rel="stylesheet" type="text/css" th:href="@{../style/authority/jquery.fancybox-1.3.4.css}" media="screen"/></link>
+<script type="text/javascript" th:src="@{../scripts/artDialog/artDialog.js}"></script>
+<title>信息管理系统</title>
+	<style>
+		#test div{
+			float:left;
+			border: 2px solid blanchedalmond;
+		}
+		#test{
+			border: 2px dashed lightgray;
+			height: 450px;
+			width: 70%;
+			margin: 2% auto;
+		}
+	</style>
+<script type="text/javascript">
+	
+		/** ----------------leftMenu zTree部分开始----------------  **/
+		var zTree;
+		var setting = {
+			view : {
+				dblClickExpand : false,
+				showLine : true,
+				selectedMulti : false,
+				expandSpeed : ($.browser.msie && parseInt($.browser.version) <= 6) ? ""
+						: "fast"
+			},
+			data : {
+				key : {
+					name : "weiduName"
+				},
+				simpleData : {
+					enable : true,
+					idKey : "weiduID",
+					pIdKey : "parentID",
+					rootPId : ""
+				}
+			},
+			callback : {
+				beforeClick : beforeClick,
+				onClick : onClick
+			}
+		};
+
+		var zNodes = [{"checked":false,"crospID":0,"delFlag":1,"parentID":0,"weiduCode":"FANGYUANGUANLI","weiduGrade":0,"weiduID":5,"weiduName":"房源管理","weiduOrder":2,"weiduType":"FANGYUANGUANLI"},
+			{"checked":false,"crospID":0,"delFlag":1,"parentID":5,"weiduCode":"KANGJUXINCHENG","weiduGrade":1,"weiduID":6,"weiduName":"瑞景河畔","weiduOrder":1,"weiduType":"FANGYUANGUANLI"},
+			{"checked":false,"crospID":0,"delFlag":1,"parentID":5,"weiduCode":"YULANXIAOQU","weiduGrade":1,"weiduID":77,"weiduName":"蔚蓝小区","weiduOrder":2,"weiduType":"FANGYUANGUANLI"},
+			{"checked":false,"crospID":0,"delFlag":1,"parentID":5,"weiduCode":"HESHENGYUAN","weiduGrade":1,"weiduID":83,"weiduName":"和盛园小区","weiduOrder":3,"weiduType":"FANGYUANGUANLI"},
+			{"checked":false,"crospID":0,"delFlag":1,"parentID":83,"weiduCode":" HESHENGYUAN1HAOLOU","weiduGrade":2,"weiduID":84,"weiduName":" 和盛园小区112号楼","weiduOrder":1,"weiduType":"FANGYUANGUANLI"},
+			{"checked":false,"crospID":0,"delFlag":1,"parentID":6,"weiduCode":"KANGJUXINCHENG500HAO1DONG","weiduGrade":2,"weiduID":16,"weiduName":"瑞景河畔16号楼","weiduOrder":1,"weiduType":"FANGYUANGUANLI"},
+			{"checked":false,"crospID":0,"delFlag":1,"parentID":77,"weiduCode":"YULANXIAOQU2HAOLOU","weiduGrade":2,"weiduID":78,"weiduName":"蔚蓝小区4号楼","weiduOrder":1,"weiduType":"FANGYUANGUANLI"},
+			{"checked":false,"crospID":0,"delFlag":1,"parentID":77,"weiduCode":"YULANXIAOQU5HAOLOU","weiduGrade":2,"weiduID":79,"weiduName":"蔚蓝小区5号楼","weiduOrder":2,"weiduType":"FANGYUANGUANLI"},
+			{"checked":false,"crospID":0,"delFlag":1,"parentID":6,"weiduCode":"KANGJUXINCHENG500HAO2DONG","weiduGrade":2,"weiduID":17,"weiduName":"瑞景河畔17号楼","weiduOrder":2,"weiduType":"FANGYUANGUANLI"},
+			{"checked":false,"crospID":0,"delFlag":1,"parentID":83,"weiduCode":" HESHENGYUAN2HAOLOU","weiduGrade":2,"weiduID":85,"weiduName":" 和盛园小区113号楼","weiduOrder":2,"weiduType":"FANGYUANGUANLI"},
+			{"checked":false,"crospID":0,"delFlag":1,"parentID":6,"weiduCode":"KANGJUXINCHENG500HAO3DONG","weiduGrade":2,"weiduID":69,"weiduName":"瑞景河畔18号楼","weiduOrder":3,"weiduType":"FANGYUANGUANLI"},
+			{"checked":false,"crospID":0,"delFlag":1,"parentID":77,"weiduCode":"YULANXIAOQU7HAOLOU","weiduGrade":2,"weiduID":80,"weiduName":"蔚蓝小区7号楼","weiduOrder":3,"weiduType":"FANGYUANGUANLI"},
+			{"checked":false,"crospID":0,"delFlag":1,"parentID":77,"weiduCode":"YULANXIAOQU8HAOLOU","weiduGrade":2,"weiduID":81,"weiduName":"蔚蓝小区8号楼","weiduOrder":4,"weiduType":"FANGYUANGUANLI"},
+			{"checked":false,"crospID":0,"delFlag":1,"parentID":6,"weiduCode":"RUIJINGHEPAN20HAOLOU","weiduGrade":2,"weiduID":72,"weiduName":"瑞景河畔20号楼","weiduOrder":4,"weiduType":"FANGYUANGUANLI"},
+			{"checked":false,"crospID":0,"delFlag":1,"parentID":6,"weiduCode":"RUIJINGHEPAN22HAOLOU","weiduGrade":2,"weiduID":73,"weiduName":"瑞景河畔22号楼","weiduOrder":5,"weiduType":"FANGYUANGUANLI"},
+			{"checked":false,"crospID":0,"delFlag":1,"parentID":6,"weiduCode":"RUIJINGHEPAN23HAOLOU","weiduGrade":2,"weiduID":74,"weiduName":"瑞景河畔23号楼","weiduOrder":6,"weiduType":"FANGYUANGUANLI"},
+			{"checked":false,"crospID":0,"delFlag":1,"parentID":6,"weiduCode":"RUIJINGHEPAN24HAOLOU","weiduGrade":2,"weiduID":75,"weiduName":"瑞景河畔24号楼","weiduOrder":7,"weiduType":"FANGYUANGUANLI"}];
+		$(document).ready(function() {
+			$.fn.zTree.init($("#tree"), setting, zNodes);
+			zTree = $.fn.zTree.getZTreeObj("tree");
+			// 默认展开所有节点
+			zTree.expandAll(true);
+		});
+
+
+
+		/** 左键单击 **/
+		function onClick(e, treeId, treeNode) {
+			var fyXqCode = treeNode.getParentNode().weiduID;
+			var fyDhCode = treeNode.weiduID;
+			$("#submitForm").attr("action","/xngzf/archives/showLoupanChart.action?fyXqCode="+ fyXqCode + "&fyDhCode=" + fyDhCode).submit();
+		}
+		/** ----------------leftMenu  zTree部分开始----------------  **/
+		
+		
+</script>
+	
+	
+<script type="text/javascript">
+	$(document).ready(function(){
+        $(".fy_table_td").fancybox({
+			'href' : '/workflow/getModelList',
+            'width' : 900,
+            'height' : 650,
+            'type' : 'iframe',
+            'hideOnOverlayClick' : false,
+        });
+        
+        var lists = $('.unit-the-table tr').eq(0);
+        $.each(lists, function(){
+			var tds = $(this).find('td[unitname]');
+			var names = {};
+			$.each(tds, function(){
+				var unitname = $(this).attr('unitname');
+				names[unitname] = names[unitname] ? names[unitname] + 1 : 1;
+			});
+			var html = '<tr><th width="40" class="fang_th">单元</th>';
+			$.each(names, function(i, n){
+				html += '<th width="40" colspan="'+n+'" class="fang_th">'+i+'单元</th>';
+			});
+			$('#unit-thead').html(html);
+        });
+	});
+</script>
+<style type="text/css">
+	#sider{
+		position: absolute;
+		top: 0;
+		left: 25px;
+		bottom: 0px;
+		width: 260px;
+		border: 1px solid #DEDFDF;
+	}
+	
+	#main{
+		position: absolute;
+		top: 0;
+		left: 0px;
+		right: 50px;
+		bottom: 0px;
+		border: 1px solid #DEDFDF;
+		overflow: auto;
+	}
+	#box_border {
+		border: 1px solid #EDEDED;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+	}
+	#fang_type {
+		list-style-type: none;
+	}
+	#fang_type li{
+		width: 80px;
+		height: 22px;
+		line-height: 22px;
+		color: #FFF;
+		display: inline-block;
+	}
+	
+	.fy_table_td{
+		color: #fff;
+	}
+	
+	.fang_th{
+		background: #044599 no-repeat;
+		text-align: center;
+		border-left: 1px solid #02397F;
+		border-right: 1px solid #02397F;
+		border-bottom: 1px solid #02397F;
+		border-top: 1px solid #02397F;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		font-size: 14px;
+		color: #fff;
+		height: 37px;
+	}
+</style>	
+</head>
+<body>
+	<form id="submitForm" name="submitForm" action="/xngzf/archives/showLoupanChart.action" method="post" enctype="multipart/form-data">
+		<!--<div id="container">-->
+			<div id="main">
+				<div id="box_border">
+					<ul id="fang_type">
+						<li style="width: 160px;"><span class="ui_txt_bold05">流程实例状态展览图</span></li>
+						<li style="background-color: #b51d1a;">已死亡</li>
+						<li style="background-color: #000EFF;">存活中</li>
+						<li style="width: 150px;color: red;">(编号为流程ID)</li>
+					</ul>
+				</div>
+				<nav id="test">
+
+				</nav>
+			</div>
+		<!--</div>-->
+	</form>
+<script>
+	$(function () {
+		$.post(
+		    "/workflow/getAllExecutions",
+			function (data) {
+		        // alert(JSON.stringify(data));
+		        var str='';
+				for(var i=0;i<data.length;i++){
+					if(data[i].status=="存活中---"){
+					    colors="#000EFF";
+					}else{
+                        colors="#b51d1a";
+					}
+				    str+='<div style="background-color:'+colors+';color:white;text-align:center;line-height:40px;width: 100px;height: 40px;">'+data[i].id_+'</div>';
+				}
+				$("#test").html(str);
+            }
+		);
+    });
+</script>
+</body>
+</html>

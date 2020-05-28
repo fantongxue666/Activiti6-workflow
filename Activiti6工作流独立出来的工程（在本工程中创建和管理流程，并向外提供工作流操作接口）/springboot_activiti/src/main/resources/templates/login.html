@@ -1,0 +1,284 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{../scripts/authority/commonAll.js}"></script>
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" th:href="@{../css/login.css}">
+    <link href="https://heerey525.github.io/layui-v2.4.3/layui/css/layui.css" rel="stylesheet" type="text/css">
+    <link th:href="@{../assets/css/layer.css}" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://heerey525.github.io/layui-v2.4.3/layui/layui.js"></script>
+    <script type="text/javascript" th:src="@{../scripts/zTree/layui.all.js}"></script>
+    <style>
+        /*css 初始化 */
+        html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*将标签原有的默认内外边距去掉*/
+
+        fieldset, img, input, button {
+            border: none; /*去掉边框*/
+            padding: 0;
+            margin: 0;
+            outline-style: none; /*去掉环绕边框*/
+        }
+
+        ul, ol {
+            list-style: none; /*去掉原样式中的小黑点*/
+            /*ctrl+alt+l*/
+        }
+
+        input {
+            padding-top: 0;
+            padding-bottom: 0;
+
+        }
+
+        select, input {
+            vertical-align: middle; /*输入字居中显示*/
+        }
+
+        select, input, textarea {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /**/
+        textarea {
+            resize: none; /*防止拖动*/
+        }
+
+        img {
+            border: 0;
+            vertical-align: middle; /*  去掉图片底部默认的3像素空白缝隙*/
+        }
+
+        table {
+            border-collapse: collapse; /*合并外边线*/
+        }
+
+        body {
+            font-family:  Microsoft YaHei, Arial, "\5b8b\4f53";
+            background:#0064C8;
+        }
+
+        .clearfix:before, .clearfix:after {
+            content: "";
+            display: table;
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        .clearfix {
+            *zoom: 1; /*IE/7/6*/
+            /*兼容IE6下的写法*/
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            text-decoration: none; /**/
+            font-weight: normal; /*不加粗*/
+            font-size: 100%;
+        }
+
+        /*login 开始*/
+        .login{
+            width: 1000px;
+            height: 500px;
+            /*background-color: yellowgreen;*/
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin-left: -500px;
+            margin-top: -250px;
+
+            background:#0064C8;
+        }
+        .login>.login_title{
+            height: 80px;
+            text-align: center;
+        }
+        .login>.login_title>p{
+            color:#fff;
+            font-size: 40px;
+            font-weight: 600;
+            margin-top: -8px;
+            letter-spacing:5px
+        }
+        .login>.login_main{
+            width: 1000px;
+            height: 320px;
+            margin-top:20px;
+        }
+        .login>.login_main>.main_left{
+            height: 320px;
+            width: 650px;
+            float: left;
+            -moz-border-top-left-radius: 10px;
+            -webkit-border-top-left-radius: 10px;
+            border-top-left-radius: 10px;
+
+            -moz-border-bottom-left-radius: 10px;
+            -webkit-border-bottom-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+
+            /*background: url("../images/login_left.png") no-repeat;*/
+        }
+        .login>.login_main>.main_right{
+            height: 320px;
+            width: 350px;
+            float: right;
+            background-color: #e9eef2;
+            -moz-border-top-right-radius: 10px;
+            -webkit-border-top-right-radius: 10px;
+            border-top-right-radius: 10px;
+
+            -moz-border-bottom-right-radius: 10px;
+            -webkit-border-bottom-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        .login>.login_main>.main_right>.right_title{
+            color:#251E5F;
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+            line-height: 60px;
+            background: url("../images/border_img.png") repeat;
+            margin-bottom: 25px;
+        }
+        .login>.login_main>.main_right>form>div{
+            position: relative;
+        }
+        .login>.login_main>.main_right>form>div>img{
+            position: absolute;
+            left: 62px;
+            top:7px;
+        }
+        .login>.login_main>.main_right>form input{
+            height: 35px;
+            width: 250px;
+            border: 1px solid #d3d8dc;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            margin-left: 50px;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            color:#333;
+            padding-left: 40px;
+        }
+
+        .login>.login_main>.main_right>form>.code>input{
+            width: 150px;
+        }
+        .login>.login_main>.main_right>form>.code>.code_img{
+            width: 90px;
+            height: 35px;
+            float: right;
+            margin-right: 50px;
+            cursor: pointer;
+        }
+        .login>.login_main>.main_right>form input:focus{
+            border: 1px solid #999;
+        }
+        .login>.login_main>.main_right>form>.yes_login>a{
+            display: block;
+            width: 250px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            background-color: #0064c8;
+            -moz-border-radius: 3px;
+            -webkit-border-radius: 3px;
+            border-radius: 3px;
+            color:#fff;
+            text-decoration: none;
+            margin-left: 50px;
+        }
+        .login>.login_main>.main_right>form>.yes_login>a:hover{
+            background-color: #0058af;
+        }
+        .login>.login_footer{
+            text-align: center;
+            padding-top: 20px;
+        }
+        .login>.login_footer>p{
+            font-size: 14px;
+            color:#eee;
+            line-height: 30px;
+        }
+        .yes_login{
+            cursor: pointer;
+        }
+
+        /*login 结束*/
+
+    </style>
+</head>
+<body>
+
+
+<a style="color:white;float:right;margin-right: 3%;margin-top: 2%;" href="http://activiti.tiger2.cn/assets/css/操作手册.docx">点击下载本产品使用手册</a>
+<div class="login">
+    <div class="login_title">
+        <p>Activiti6工作流集成平台</p>
+    </div>
+    <div class="login_main">
+        <div class="main_left" style="background-color:white;"><img style="margin-left: 21%;width: 60%;height: 100%;" th:src="@{../images/timg.jpg}" alt=""></div>
+        <div class="main_right">
+            <div class="right_title">用户登录</div>
+            <form id="form" action="/business/loginSubmit" method="post">
+                <div class="username">
+                    <img src="../images/username.png" alt="">
+                    <input type="text" name="username" placeholder="请输入用户名">
+                </div>
+                <div class="password">
+                    <img src="../images/password.png" alt="">
+                    <input type="password" name="password" placeholder="请输入密码">
+                </div>
+                
+                <div class="yes_login"><a>登&nbsp;&nbsp;&nbsp;&nbsp;录</a></div>
+				<!--<center><p style="margin-top:20px;font-size:12px;color:#FA6F03;">登录遇到问题，请联系管理员</p></center>-->
+                <center><p style="margin-top:20px;font-size:12px;color:lightsalmon;" th:text="${msg}"></p></center>
+            </form>
+        </div>
+    </div>
+    <div class="login_footer" style="margin-top: 14%;">
+        <!--<p>豫ICP备20011044号 &nbsp;&nbsp;<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41010502004485" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://img-blog.csdnimg.cn/20200430084701134.png#pic_center" style="float:left;"/><p style="float:left;height:20px;line-height:20px;margin: 0px 0px 0px 5px; color:white;">豫公网安备 41010502004485号</p></a></p>-->
+        <span style="margin-right: 5%;"></span>
+        <span>
+           <span style="color: white;">豫ICP备20011044号</span>&nbsp;&nbsp;&nbsp;&nbsp;<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=41010502004485" style="display:inline-block;text-decoration:none;height:20px;line-height:20px;"><img src="https://img-blog.csdnimg.cn/20200430084701134.png#pic_center" style="float:left;margin-top: 1%;"/><p style="float:left;margin-top: 3%;height:20px;line-height:20px;margin: 2px 10px 3px 3px; color:white;">豫公网安备 41010502004485号</p></a>
+
+
+        </span>
+    </div>
+</div>
+<script>
+    $(function () {
+
+        setTimeout(function () {
+            layer.alert('温馨提示：您是没有注册本产品账号的权限的，如您希望可以注册，可以联系网站制作人进行授权！', {
+                skin: 'layui-layer-molv' //样式类名
+                ,closeBtn: 0
+            }, function(){
+                layer.alert('网站制作人联系方式：18838030468', {
+                    skin: 'layui-layer-lan'
+                    ,closeBtn: 0
+                    ,anim: 4 //动画类型
+                });
+            });
+        },2000);
+
+       $(".yes_login").click(function () {
+           $("#form").submit();
+       });
+    });
+</script>
+</body>
+</html>

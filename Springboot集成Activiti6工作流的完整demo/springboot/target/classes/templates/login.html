@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title>模拟登录</title>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <!-- CSS Files -->
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../assets/css/now-ui-kit.css?v=1.1.0" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link href="../assets/css/demo.css" rel="stylesheet" />
+</head>
+<body>
+<!-- Navbar -->
+
+<!-- End Navbar -->
+<div class="page-header" filter-color="orange">
+    <div class="page-header-image"></div>
+    <div class="container">
+        <div class="col-md-4 content-center">
+            <div class="card card-login card-plain" style="margin-left: 20%;">
+
+                <form class="form" method="post" action="/test/login">
+                    <div class="header header-primary text-center">
+                        <div class="logo-container" style="width: 300px; font-size: 30px;">
+                            Activiti工作流系统
+                            <!--<img src="assets/img/now-logo.png" alt="">-->
+                        </div>
+                    </div>
+                    <div class="content" style="width: 50%;">
+                        <div class="input-group form-group-no-border input-lg">
+                                <span class="input-group-addon">
+                                    <i class="now-ui-icons users_circle-08"></i>
+                                </span>
+                            <input id="username" name="username" type="text" class="form-control" placeholder="账号"/>
+                        </div>
+                        <div class="input-group form-group-no-border input-lg">
+                                <span class="input-group-addon">
+                                    <i class="now-ui-icons text_caps-small"></i>
+                                </span>
+                            <input type="password" name="password" placeholder="密码" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="footer text-center">
+                        <input style="width: 50%;" id="btn" type="submit" class="btn btn-primary btn-round btn-lg btn-block" value="登录"></input>
+                    </div>
+
+
+                </form>
+                <div style="color: white;width: 120px;margin-left: 18%;" th:text="${msg}"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+
+</html>

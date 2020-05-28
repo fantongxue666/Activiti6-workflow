@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>工作流平台</title>
+	<link th:href="@{../style/authority/main_css.css}" rel="stylesheet" type="text/css" />
+	<link th:href="@{../style/authority/zTreeStyle.css}" rel="stylesheet" type="text/css">
+	<script type="text/javascript" th:src="@{../scripts/jquery/jquery-1.7.1.js}"></script>
+	<script type="text/javascript" th:src="@{../scripts/zTree/jquery.ztree.core-3.2.js}"></script>
+	<script type="text/javascript" th:src="@{../scripts/authority/commonAll.js}"></script>
+	<link href="https://heerey525.github.io/layui-v2.4.3/layui/css/layui.css" rel="stylesheet" type="text/css">
+	<link th:href="@{../assets/css/layer.css}" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="https://heerey525.github.io/layui-v2.4.3/layui/layui.js"></script>
+	<script type="text/javascript" th:src="@{../scripts/zTree/layui.all.js}"></script>
+	<link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+	<style>
+		#top_links{
+			width: 227px;
+		}
+		#top_op{
+			width: 0px;
+		}
+		.ztree{
+			margin-right: 6%;
+		}
+		.ztree>li{
+			/*border:2px dashed lightgray;*/
+		}
+	</style>
+	<script type="text/javascript">
+		/**退出系统**/
+		function logout(){
+
+            layer.confirm("您确定要退出本系统吗？",{btn:['确认','取消']},function () {
+                window.location.href = "/business/logout";
+            },function () {
+                //取消之后的操作
+            })
+		}
+		
+		$(function () {
+            $.ajax({
+                url:"/business/getSession",
+                type:"post",
+                dataType:"json",
+                success:function (data) {
+                    // alert(JSON.stringify(data));
+                    $("#account").html(data);
+                }
+            });
+
+            $.post(
+                "/power/tree",
+                function (data) {
+                    var str="";
+                    //##################################
+                    for(var i=0;i<data.length;i++){
+                        if(data[i].parentid==0){
+                            str+=' <li class="seconddd"><a style="font-size: 16px;" onclick="shows('+i+')" href="#">'+data[i].resourceName+'</a><ul class="ulObj"></ul></li>';
+                        }
+                    }
+                    //##################################
+                    $("#menu").append(str);
+                    //##################################
+                    for(var k=0;k<data.length;k++){
+                        var strSe="";
+                        if(data[k].treeNodeList!=null){
+                            // alert(data[i].children.length);
+                            for (var j=0;j<data[k].treeNodeList.length;j++){
+
+                                strSe+='<li><a onclick="return check(this)" target="iframe" href="'+data[k].treeNodeList[j].url+'">'+data[k].treeNodeList[j].resourceName+'</a></li>';
+                            }
+                        }else if(data[k].treeNodeList==null){
+                        }
+                        $(".seconddd .ulObj").eq(k).append(strSe);
+                    }
+                    //###################################
+                },
+                "json"
+            );
+        });
+
+        function shows(i) {
+            $(".ulObj").eq(i).toggle();
+        }
+        function check(e) {
+			if($(e).html()=="创建新模型"){
+			    if(confirm("点击创建模型之后，如果您不保存的话仍然会保存一个新模型，那样的话您必须在模型管理界面进行删除才可以，请问您要继续创建模型操作吗？？")){
+                    layer.msg('创建模型成功', {icon: 1});
+			        return true;
+				}else{
+                    layer.msg('感谢您的支持！', {
+                        time: 20000, //20s后自动关闭
+                        btn: ['应该的']
+                    });
+			        return false;
+				}
+			}
+        }
+
+
+
+
+	</script>
+
+</head>
+<body>
+
+    <div class="container" style="width: 100%;">
+		<div id="top">
+			<div id="top_logo">
+				<!--<img alt="logo" th:src="@{../images/common/logo.jpg}" width="274" height="49" style="vertical-align:middle;">-->
+			</div>
+			<div id="top_links">
+							<span id="account" style="font-size: 19px;color: white;margin-right: 4%;"></span>
+				<div id="top_close">
+					<a href="javascript:void(0);" onclick="logout();" target="_parent">
+						<img alt="退出系统" title="退出系统" th:src="@{../images/common/close.jpg}" style="position: relative; top: 10px; left: 25px;">
+					</a>
+				</div>
+			</div>
+		</div>
+		<!-- side menu start -->
+		<div id="side">
+			<div id="left_menu">
+				<ul id="TabPage2" style="height:200px; margin-top:50px;">
+					<li id="left_tab1" class="selected" onClick="javascript:switchTab('TabPage2','left_tab1');" title="业务模块">
+						<img alt="业务模块" title="业务模块" th:src="@{../images/common/1_hover.jpg}" width="33" height="31">
+					</li>
+
+				</ul>
+
+
+
+				<div id="nav_show" style="position:absolute; bottom:0px; padding:10px;">
+					<a href="javascript:;" id="show_hide_btn">
+						<img alt="显示/隐藏" title="显示/隐藏" th:src="@{../images/common/nav_hide.png}" width="35" height="35">
+					</a>
+				</div>
+			</div>
+			<div id="left_menu_cnt">
+				<div id="nav_module">
+					<img th:src="@{../images/common/module_1.png}" width="210" height="58"/>
+				</div>
+				<div id="nav_resource">
+					<ul id="menu" class="ztree"></ul>
+				</div>
+				<!--<ul id="menu"></ul>-->
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+
+			
+			// 显示隐藏侧边栏
+			$("#show_hide_btn").click(function() {
+		        switchSysBar();
+		    });
+		});
+		
+		/**隐藏或者显示侧边栏**/
+		function switchSysBar(flag){
+			var side = $('#side');
+	        var left_menu_cnt = $('#left_menu_cnt');
+			if( flag==true ){	// flag==true
+				left_menu_cnt.show(500, 'linear');
+				side.css({width:'280px'});
+				$('#top_nav').css({width:'77%', left:'304px'});
+	        	$('#main').css({left:'280px'});
+			}else{
+		        if ( left_menu_cnt.is(":visible") ) {
+					left_menu_cnt.hide(10, 'linear');
+					side.css({width:'60px'});
+		        	$('#top_nav').css({width:'100%', left:'60px', 'padding-left':'28px'});
+		        	$('#main').css({left:'60px'});
+		        	$("#show_hide_btn").find('img').attr('src', '../images/common/nav_show.png');
+		        } else {
+					left_menu_cnt.show(500, 'linear');
+					side.css({width:'280px'});
+					$('#top_nav').css({width:'77%', left:'304px', 'padding-left':'0px'});
+		        	$('#main').css({left:'280px'});
+		        	$("#show_hide_btn").find('img').attr('src', '../images/common/nav_hide.png');
+		        }
+			}
+		}
+	</script>
+    <!-- side menu start -->
+    <div id="top_nav">
+	 	<span id="here_area">当前位置：系统&nbsp;>&nbsp;系统介绍</span>
+	</div>
+    <div id="main">
+      	<iframe name="iframe" id="iframe" src="/business/welcome" frameborder="no" scrolling="auto" width="100%" height="100%" allowtransparency="true"/>
+    </div>
+</body>
+</html>
+   
+ 

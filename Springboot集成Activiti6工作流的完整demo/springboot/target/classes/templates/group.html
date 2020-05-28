@@ -1,0 +1,76 @@
+﻿<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<meta name="renderer" content="webkit|ie-comp|ie-stand"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+	<link th:href="@{../assets/css/bootstrap.min.css}" rel="stylesheet" />
+	<link th:href="@{../assets/css/now-ui-kit.css}" rel="stylesheet" />
+	<!-- CSS Just for demo purpose, don't include it in your project -->
+	<link th:href="@{../assets/css/demo.css}" rel="stylesheet" />
+	<!--[if IE 6]>
+	<script type="text/javascript" src="../assets/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
+
+<![endif]-->
+<title>待办列表</title>
+</head>
+<body>
+
+<div class="page-container">
+	<div class="mt-20">
+		<table class="table table-border table-bordered table-bg table-hover table-sort table-responsive">
+			<thead>
+				<tr class="text-c">
+					<th width="80">ID</th>
+					<th width="80">请假人</th>
+					<th width="80">请假时间</th>
+					<th width="80">请假原因</th>
+					<th width="80">审批</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="text-c" th:each="item:${list}">
+					<td th:text="${item.id}"></td>
+					<td class="text-l" th:text="${item.name}"></td>
+					<td th:text="${item.time}"></td>
+					<td th:text="${item.reason}"></td>
+					<td>
+						<a style="color: blue;text-decoration: black;" th:attr="data-id=${item.taskId}" class="del">拾取组任务</a>
+					</td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</div>
+
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<script th:inline="javascript" type="text/javascript">
+
+        $(function () {
+            $(".del").click(function () {
+				if(confirm("确认拾取？")){
+                    var i=$(this).data("id");
+                    $.post(
+                        "/group/getTask",
+                        {taskId:i,is:true},
+                        function (data) {
+                            if(data==0){
+                                alert("处理成功，关闭弹框刷新页面！");
+                                window.location.href=window.location.href;
+                            }
+                        }
+                    );
+				}
+            });
+
+
+        });
+
+
+</script>
+</body>
+</html>

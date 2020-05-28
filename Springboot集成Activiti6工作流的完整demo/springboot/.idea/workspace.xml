@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f4355638-418d-41c5-b4ac-b47a8c9c3f27" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-766964251">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="22" />
+          <entry key="project.open.time.0" value="9" />
+          <entry key="project.open.time.1" value="11" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="22" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="bpmn" value="16" />
+          <entry key="class" value="33" />
+          <entry key="html" value="37" />
+          <entry key="java" value="36" />
+          <entry key="properties" value="6" />
+          <entry key="txt" value="1" />
+          <entry key="xml" value="10" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="BPMN_EDITOR" value="16" />
+          <entry key="CLASS" value="33" />
+          <entry key="HTML" value="37" />
+          <entry key="JAVA" value="36" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="Properties" value="6" />
+          <entry key="XML" value="10" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="html" value="2063" />
+          <entry key="java" value="7744" />
+          <entry key="properties" value="3" />
+          <entry key="xml" value="21" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="HTML" value="2063" />
+          <entry key="JAVA" value="7744" />
+          <entry key="Properties" value="3" />
+          <entry key="XML" value="21" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ftx/springboot/controller/TestController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="283">
+              <caret line="90" selection-start-line="90" selection-end-line="90" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/ftx/springboot/Cache/CacheManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#329#340#0" expanded="true" />
+                <element signature="e#387#388#0" expanded="true" />
+                <element signature="e#423#424#0" expanded="true" />
+                <element signature="e#485#486#0" expanded="true" />
+                <element signature="e#505#506#0" expanded="true" />
+                <element signature="e#721#722#0" expanded="true" />
+                <element signature="e#741#742#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="BpmnFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>username</find>
+      <find>/test/solute</find>
+      <find>RECEIVE_EMAIL_ACCOUNT</find>
+      <find>emailAddress</find>
+      <find>thyme</find>
+      <find>getInstanceByInstanceId</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/ftx/springboot/App.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftx/springboot/config/ActivitiConfiguration.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/process/holiday.bpmn" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftx/springboot/utils/JumpCmd.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/logo.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/login.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/process/holiday2.bpmn" />
+        <option value="$PROJECT_DIR$/src/main/resources/process/group.bpmn" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/activiti.cfg.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftx/springboot/Mapper/TestMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftx/springboot/utils/EmailUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/index.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftx/springboot/controller/HangController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftx/springboot/Filter/CorsConfig.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftx/springboot/Filter/TestFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftx/springboot/controller/GroupController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftx/springboot/Filter/WorkFlowManager.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/form.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/group.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/list.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftx/springboot/controller/TestController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/ftx/springboot/Cache/CacheManager.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JRebelWorkspace">
+    <option name="jrebelEnabledAutocompile" value="true" />
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\maven-repository" />
+        <option name="mavenHome" value="D:/apache-maven-3.3.9" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1939" />
+    <option name="height" value="1049" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springboot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springboot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springboot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springboot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springboot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springboot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="springboot" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springboot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springboot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="process" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="springboot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="springboot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1590551175814" />
+    <property name="last_opened_file_path" value="D:/工作/鲲鹏工作流git/kunpengit" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+  </component>
+  <component name="RebelAgentSelection">
+    <selection>jr</selection>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.ftx.springboot.Filter" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\workspace\springboot\src\main\resources\templates" />
+      <recent name="D:\workspace\springboot\src\main\resources\static" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.App">
+    <configuration name="TestController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.ftx.springboot.controller.TestController" />
+      <module name="springboot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ftx.springboot.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmailUtil.sendWY163Email" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="springboot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ftx.springboot.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ftx.springboot.utils" />
+      <option name="MAIN_CLASS_NAME" value="com.ftx.springboot.utils.EmailUtil" />
+      <option name="METHOD_NAME" value="sendWY163Email" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestController.deploy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="springboot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ftx.springboot.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ftx.springboot.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.ftx.springboot.controller.TestController" />
+      <option name="METHOD_NAME" value="deploy" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestController.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="springboot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ftx.springboot.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ftx.springboot.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.ftx.springboot.controller.TestController" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestController.testGenTable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="springboot" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.ftx.springboot.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.ftx.springboot.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.ftx.springboot.controller.TestController" />
+      <option name="METHOD_NAME" value="testGenTable" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="App" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="springboot" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ftx.springboot.App" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.App" />
+      <item itemvalue="Application.TestController" />
+      <item itemvalue="JUnit.TestController.deploy" />
+      <item itemvalue="JUnit.TestController.testGenTable" />
+      <item itemvalue="JUnit.EmailUtil.sendWY163Email" />
+      <item itemvalue="JUnit.TestController.test" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TestController.test" />
+        <item itemvalue="JUnit.EmailUtil.sendWY163Email" />
+        <item itemvalue="Application.TestController" />
+        <item itemvalue="JUnit.TestController.deploy" />
+        <item itemvalue="JUnit.TestController.testGenTable" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f4355638-418d-41c5-b4ac-b47a8c9c3f27" name="Default Changelist" comment="" />
+      <created>1588833880770</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588833880770</updated>
+      <workItem from="1588833883285" duration="70000" />
+      <workItem from="1588835249452" duration="3356000" />
+      <workItem from="1588838621718" duration="7979000" />
+      <workItem from="1588899202045" duration="15168000" />
+      <workItem from="1588930693768" duration="392000" />
+      <workItem from="1588996626422" duration="4223000" />
+      <workItem from="1589089489215" duration="13211000" />
+      <workItem from="1589157963979" duration="20000" />
+      <workItem from="1589261715733" duration="739000" />
+      <workItem from="1589417643216" duration="20669000" />
+      <workItem from="1589544777354" duration="762000" />
+      <workItem from="1589596787477" duration="691000" />
+      <workItem from="1589615742798" duration="44000" />
+      <workItem from="1589701032249" duration="618000" />
+      <workItem from="1589706569614" duration="7070000" />
+      <workItem from="1589773983932" duration="616000" />
+      <workItem from="1589778425495" duration="4171000" />
+      <workItem from="1589801524481" duration="2846000" />
+      <workItem from="1589863667899" duration="6763000" />
+      <workItem from="1589875989333" duration="1703000" />
+      <workItem from="1590210692733" duration="4240000" />
+      <workItem from="1590550405904" duration="778000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="TestController_testGenTable - 2020.05.08 at 09h 00m 21s.xml">
+      <configuration name="TestController.testGenTable" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestController_deploy - 2020.05.08 at 09h 00m 57s.xml">
+      <configuration name="TestController.deploy" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestController_deploy - 2020.05.14 at 09h 55m 38s.xml">
+      <configuration name="TestController.deploy" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestController_deploy - 2020.05.14 at 09h 56m 18s.xml">
+      <configuration name="TestController.deploy" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestController_deploy - 2020.05.14 at 10h 23m 23s.xml">
+      <configuration name="TestController.deploy" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestController_deploy - 2020.05.14 at 10h 28m 18s.xml">
+      <configuration name="TestController.deploy" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EmailUtil_sendWY163Email - 2020.05.14 at 13h 57m 26s.xml">
+      <configuration name="EmailUtil.sendWY163Email" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="EmailUtil_sendWY163Email - 2020.05.14 at 14h 01m 18s.xml">
+      <configuration name="EmailUtil.sendWY163Email" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestController_test - 2020.05.14 at 14h 07m 14s.xml">
+      <configuration name="TestController.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestController_test - 2020.05.14 at 14h 08m 13s.xml">
+      <configuration name="TestController.test" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="96129000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22520107" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="JRebel" order="3" side_tool="true" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Capture Tool" order="7" />
+      <window_info id="Web" order="8" side_tool="true" />
+      <window_info id="BPMN Editor" order="9" weight="0.20509383" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.44554454" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.26449788" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Java Enterprise" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="JRebel Console" order="13" side_tool="true" weight="0.32956153" />
+      <window_info anchor="bottom" id="Problems" order="14" />
+      <window_info anchor="bottom" id="JRebel Executor" order="15" />
+      <window_info anchor="bottom" id="Messages" order="16" weight="0.32956153" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="BPMNPalette" order="5" weight="0.25737265" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" id="Bean Validation" order="10" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/ftx/springboot/Filter/WorkFlowManager.java</url>
+          <line>125</line>
+          <properties />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="map2" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>htiList.get(htiList.size()-1)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>session.getAttribute(&quot;username&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>processDefinitionEntity</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/banner.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://D:/maven-repository/org/apache/tomcat/embed/tomcat-embed-core/8.5.16/tomcat-embed-core-8.5.16.jar!/org/apache/catalina/core/ApplicationFilterChain.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="76" column="17" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftx/springboot/config/ActivitiConfiguration.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftx/springboot/utils/JumpCmd.java" />
+    <entry file="jar://D:/maven-repository/org/activiti/activiti-bpmn-model/6.0.0/activiti-bpmn-model-6.0.0.jar!/org/activiti/bpmn/model/FlowNode.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-162">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/maven-repository/org/activiti/activiti-engine/6.0.0/activiti-engine-6.0.0.jar!/org/activiti/engine/impl/persistence/entity/ProcessDefinitionEntity.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/process/holiday.bpmn" />
+    <entry file="jar://D:/maven-repository/org/activiti/activiti-engine/6.0.0/activiti-engine-6.0.0.jar!/org/activiti/engine/RuntimeService.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/process/holiday2.bpmn" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/activiti.cfg.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="73" selection-start-line="11" selection-start-column="73" selection-end-line="11" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftx/springboot/controller/EmailController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftx/springboot/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/maven-repository/org/apache/tomcat/embed/tomcat-embed-core/8.5.16/tomcat-embed-core-8.5.16.jar!/javax/servlet/http/HttpServletRequest.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="58" column="34" selection-start-line="58" selection-start-column="27" selection-end-line="58" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftx/springboot/utils/EmailUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="25" column="49" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/process/group.bpmn">
+      <provider selected="true" editor-type-id="bpmn-editor" />
+    </entry>
+    <entry file="jar://D:/maven-repository/org/springframework/spring-web/4.3.10.RELEASE/spring-web-4.3.10.RELEASE.jar!/org/springframework/web/client/RestTemplate.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="554" selection-start-line="554" selection-end-line="554" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftx/springboot/Filter/CorsConfig.java" />
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="864">
+          <caret line="48" column="30" selection-start-line="48" selection-start-column="30" selection-end-line="48" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftx/springboot/Filter/TestFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="50" column="19" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftx/springboot/controller/HangController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="38" column="79" selection-start-line="38" selection-start-column="79" selection-end-line="38" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftx/springboot/Mapper/TestMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="27" column="53" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="41" column="52" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="846">
+          <caret line="47" column="54" selection-start-line="47" selection-start-column="54" selection-end-line="47" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/group.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="498">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="53" column="14" lean-forward="true" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/logo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="57" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftx/springboot/controller/GroupController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="50" column="69" selection-start-line="50" selection-start-column="69" selection-end-line="50" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftx/springboot/Filter/WorkFlowManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftx/springboot/Cache/CacheManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#329#340#0" expanded="true" />
+            <element signature="e#387#388#0" expanded="true" />
+            <element signature="e#423#424#0" expanded="true" />
+            <element signature="e#485#486#0" expanded="true" />
+            <element signature="e#505#506#0" expanded="true" />
+            <element signature="e#721#722#0" expanded="true" />
+            <element signature="e#741#742#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://D:/maven-repository/org/springframework/spring-web/4.3.10.RELEASE/spring-web-4.3.10.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="117" selection-start-line="117" selection-end-line="117" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/ftx/springboot/controller/TestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="90" selection-start-line="90" selection-end-line="90" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
